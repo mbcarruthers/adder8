@@ -1,6 +1,6 @@
 # 8 bit synchronous counter
 
-Extrapolation of a 3 bit countercombinational logic diagram from  'Digital Design from Scratch Volume 1', page 77 
+Extrapolation of a 3 bit counter combinational logic diagram from  'Digital Design from Scratch Volume 1', page 77 
 
 !['image of adder8'](./counter.png)
 
