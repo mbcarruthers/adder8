@@ -6,21 +6,23 @@ entity tb_adder8 is
 end entity;
 
 architecture RTL of tb_adder8 is
-    signal Clk : std_logic := '0';
+    signal Clk, Clear : std_logic := '0'; 
 begin
     uut : entity work.adder8
         Port map(
-            Clk   => Clk
+            Clk   => Clk, 
+            Clear => Clear
         );
       
     process
     begin
-
         Clk <= '0'; 
+        Clear <= '1'; 
         wait for 10 ns; 
+        Clear <= '0'; 
 
         for i in 0 to 511 loop
-            Clk <= '1' when(Clk = '0') else '0' when(Clk = '1'); 
+            Clk <= not Clk; -- '1' when(Clk = '0') else '0' when(Clk = '1'); 
             wait for 10 ns;
         end loop; 
 
@@ -28,6 +30,7 @@ begin
         wait for 10 ns; 
 
         Clk <= '0'; 
+        Clear <= '1'; 
         wait for 20 ns; 
         
         wait;

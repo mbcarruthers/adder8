@@ -30,15 +30,14 @@ use IEEE.numeric_std.all;
 
 entity adder8 is 
     Port(
-        Clk : in std_logic
+        Clk : in std_logic;
+        Clear : in std_logic
     );
 end entity; 
 
-architecture RTL of adder8 is 
-    signal Clear : std_logic := '0';  
+architecture RTL of adder8 is  
     signal N : std_logic_vector(7 downto 0); 
-begin 
-    Clear <= and N; 
+begin  
    b0 : entity work.d_flop
     port map(
         D      => not N(0) and not Clear,
